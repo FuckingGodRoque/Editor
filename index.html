@@ -9,31 +9,29 @@
 <body>
 
     <div class="container">
-        <h2>Editor de Texto</h2>
+        <h1>Editor de Texto</h1>
 
         <div class="toolbar">
-            <button onclick="formatText('bold')"><b>B</b></button>
-            <button onclick="formatText('italic')"><i>I</i></button>
-            <button onclick="formatText('underline')"><u>U</u></button>
+            <button onclick="formatText('bold')" title="Negrita"><b>B</b></button>
+            <button onclick="formatText('italic')" title="Cursiva"><i>I</i></button>
+            <button onclick="formatText('underline')" title="Subrayado"><u>U</u></button>
             
-            <select onchange="changeFont(this.value)">
+            <select onchange="changeFont(this.value)" title="Fuente">
                 <option value="Arial">Arial</option>
                 <option value="Georgia">Georgia</option>
                 <option value="Times New Roman">Times New Roman</option>
                 <option value="Verdana">Verdana</option>
             </select>
 
-            <input type="color" onchange="changeColor(this.value)">
+            <input type="color" onchange="changeColor(this.value)" title="Color de texto">
+            
+            <button onclick="alignText('left')" title="Alinear a la izquierda">⬅</button>
+            <button onclick="alignText('center')" title="Centrar">⬆</button>
+            <button onclick="alignText('right')" title="Alinear a la derecha">➡</button>
+            <button onclick="alignText('justify')" title="Justificar">🔲</button>
         </div>
 
-        <div class="toolbar">
-            <button onclick="alignText('left')">⬅</button>
-            <button onclick="alignText('center')">⬆</button>
-            <button onclick="alignText('right')">➡</button>
-            <button onclick="alignText('justify')">🔲</button>
-        </div>
-
-        <div class="page">
+        <div class="editor-container">
             <div id="editor" contenteditable="true" onfocus="clearPlaceholder()" onblur="restorePlaceholder()">
                 Escribe aquí...
             </div>

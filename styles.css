@@ -1,62 +1,98 @@
-/* Colores pastel en azul y gris */
+
 :root {
-    --azul-claro: #d4e4ff;
-    --azul-medio: #a6c8ff;
-    --azul-oscuro: #4a90e2;
-    --gris-claro: #f0f0f0;
-    --gris-medio: #d9d9d9;
-    --texto: #333;
+    --ios-blue: #007aff;
+    --ios-light-gray: #f2f2f7;
+    --ios-dark-gray: #1c1c1e;
+    --ios-text: #333;
+    --ios-shadow: rgba(0, 0, 0, 0.1);
+    --ios-toolbar-bg: #ffffff;
+    --ios-toolbar-border: #e5e5ea;
 }
 
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--gris-claro);
-    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: var(--ios-light-gray);
+    color: var(--ios-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
+    width: 90%;
     max-width: 800px;
-    margin: auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px var(--ios-shadow);
     padding: 20px;
+    overflow: hidden;
 }
 
 h2 {
-    color: var(--texto);
+    color: var(--ios-text);
 }
 
-/* Barra de herramientas */
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--ios-blue);
+    font-weight: 600;
+}
+
+
 .toolbar {
-    background-color: var(--azul-claro);
-    padding: 10px;
-    border-radius: 5px;
     display: flex;
-    justify-content: center;
-    gap: 8px;
     flex-wrap: wrap;
-    margin-bottom: 10px;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    background: var(--ios-toolbar-bg);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--ios-toolbar-border);
+    box-shadow: 0 2px 4px var(--ios-shadow);
 }
 
-.toolbar button, .toolbar select, .toolbar input {
-    padding: 8px;
+.toolbar button, .toolbar select, .toolbar input[type="color"] {
+    padding: 10px 14px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.toolbar button {
-    background-color: var(--azul-medio);
+    border-radius: 8px;
+    background: var(--ios-blue);
     color: white;
-    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.2s;
 }
 
-.toolbar button:hover {
-    background-color: var(--azul-oscuro);
+.toolbar button:hover, .toolbar select:hover, .toolbar input[type="color"]:hover {
+    background: #0056d6;
+    transform: scale(1.05);
 }
 
-/* "Hoja" de edición */
+.toolbar select {
+    font-family: inherit;
+    background: white;
+    color: var(--ios-text);
+    border: 1px solid var(--ios-toolbar-border);
+    padding: 8px 12px;
+}
+
+.toolbar input[type="color"] {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--ios-toolbar-border);
+}
+
+
 .page {
     background-color: white;
     width: 90%;
@@ -68,24 +104,43 @@ h2 {
     border-radius: 5px;
 }
 
-/* Área editable */
+
+.editor-container {
+    border: 1px solid var(--ios-toolbar-border);
+    border-radius: 12px;
+    background: white;
+    padding: 20px;
+    min-height: 300px;
+    box-shadow: inset 0 2px 4px var(--ios-shadow);
+}
+
 #editor {
-    min-height: 460px;
+    width: 100%;
+    height: 100%;
     outline: none;
-    color: var(--texto);
+    border: none;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--ios-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+#editor:empty:before {
+    content: attr(placeholder);
+    color: #aaa;
+    font-style: italic;
 }
 
 #editor:focus {
     border: none;
 }
 
-/* Responsividad */
 @media (max-width: 600px) {
     .toolbar {
         flex-wrap: wrap;
     }
 
-    .page {
+    .container {
         width: 95%;
     }
 }
