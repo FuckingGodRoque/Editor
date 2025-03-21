@@ -1,0 +1,92 @@
+/* Colores pastel en azul y gris */
+:root {
+    --azul-claro: #d4e4ff;
+    --azul-medio: #a6c8ff;
+    --azul-oscuro: #4a90e2;
+    --gris-claro: #f0f0f0;
+    --gris-medio: #d9d9d9;
+    --texto: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--gris-claro);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    color: var(--texto);
+}
+
+/* Barra de herramientas */
+.toolbar {
+    background-color: var(--azul-claro);
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.toolbar button, .toolbar select, .toolbar input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.toolbar button {
+    background-color: var(--azul-medio);
+    color: white;
+    font-weight: bold;
+}
+
+.toolbar button:hover {
+    background-color: var(--azul-oscuro);
+}
+
+/* "Hoja" de edición */
+.page {
+    background-color: white;
+    width: 90%;
+    max-width: 700px;
+    min-height: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Área editable */
+#editor {
+    min-height: 460px;
+    outline: none;
+    color: var(--texto);
+}
+
+#editor:focus {
+    border: none;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .toolbar {
+        flex-wrap: wrap;
+    }
+
+    .page {
+        width: 95%;
+    }
+}
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Texto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Editor de Texto</h2>
+
+        <div class="toolbar">
+            <button onclick="formatText('bold')"><b>B</b></button>
+            <button onclick="formatText('italic')"><i>I</i></button>
+            <button onclick="formatText('underline')"><u>U</u></button>
+            
+            <select onchange="changeFont(this.value)">
+                <option value="Arial">Arial</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Verdana">Verdana</option>
+            </select>
+
+            <input type="color" onchange="changeColor(this.value)">
+        </div>
+
+        <div class="toolbar">
+            <button onclick="alignText('left')">⬅</button>
+            <button onclick="alignText('center')">⬆</button>
+            <button onclick="alignText('right')">➡</button>
+            <button onclick="alignText('justify')">🔲</button>
+        </div>
+
+        <div class="page">
+            <div id="editor" contenteditable="true" onfocus="clearPlaceholder()" onblur="restorePlaceholder()">
+                Escribe aquí...
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
